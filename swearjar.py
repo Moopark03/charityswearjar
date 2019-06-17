@@ -22,7 +22,7 @@ for follower in tweepy.Cursor(api.followers).items():
 
 phrase = 'Bad words are not as bad as being selfish. Donate to a charity of the week: https://www.plannedparenthood.org/get-involved/other-ways-give'
 numberOfTweets = 1
-for tweet in tweepy.Cursor(api.search, q=('fuck OR shit OR motherfucker OR cunt OR shithead OR fucking -filter:retweets'), lang='en', page=2).items(numberOfTweets):
+for tweet in tweepy.Cursor(api.search, q=('fuck OR shit OR motherfucker OR cunt OR shithead OR fucking -filter:retweets -filter:replies'), lang='en', page=2).items(numberOfTweets):
     tweet.retweet()
 
 #Things to work on:
