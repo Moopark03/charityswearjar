@@ -15,20 +15,15 @@ for follower in tweepy.Cursor(api.followers).items():
     print("Followed everyone that is following " + user.name)
 
 #load cuss words in txt
-f = open('swear.txt', 'r')
-search = f.read().splitlines()
-f.close()
+#f = open('swear.txt', 'r')
+#search = f.read().splitlines()
+#f.close()
 #words contain all the keywords to search for
 
-for x in search: #goes through each keyword
-    print (x)
 phrase = 'Bad words are not as bad as being selfish. Donate to a charity of the week: https://www.plannedparenthood.org/get-involved/other-ways-give'
 numberOfTweets = 1
 for tweet in tweepy.Cursor(api.search, q=('fuck OR shit OR motherfucker OR cunt OR shithead OR fucking -filter:retweets'), lang='en', page=2).items(numberOfTweets):
     tweet.retweet()
-    #tweetId = tweet.id
-    #name = tweet.user.screen_name
-    #api.update_status("@" + name + " " + phrase, in_reply_to_status_id = tweetId)
 
 #Things to work on:
-### 1. Scan tweets older than 1 hour. 2. Reply to users who follow or on a thread that has the bot mentioned 3. Is there a way to not get banned?
+### 1. Scan tweets older than 1 hour
